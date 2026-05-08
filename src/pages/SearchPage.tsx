@@ -44,6 +44,7 @@ export default function SearchPage() {
   const [view, setView] = useState<'list' | 'map'>('list');
   const [listings, setListings] = useState<ParkingListing[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   
   // Initial location from URL or default BBA, Algeria
   const initialLat = searchParams.get('lat') ? parseFloat(searchParams.get('lat')!) : 36.0731;
@@ -73,6 +74,8 @@ export default function SearchPage() {
 
   useEffect(() => {
     const fetchListings = async () => {
+      setIsLoading(true);
+      setFetchError(null);
       try {
         const data = await api.getListings();
         setListings(data);
@@ -137,8 +140,9 @@ export default function SearchPage() {
             }
           }
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error('Failed to fetch listings:', error);
+        setFetchError(error.message || 'Erreur lors du chargement des parkings');
       } finally {
         setIsLoading(false);
       }
@@ -346,6 +350,16 @@ export default function SearchPage() {
                 <div className="h-7 bg-muted/50 rounded-lg mt-1" />
               </div>
             ))
+          ) : fetchError ? (
+            <div className="col-span-full flex flex-col items-center justify-center p-12 text-center bg-red-500/10 border border-red-500/20 rounded-3xl">
+              <p className="text-red-500 font-bold mb-4">{fetchError}</p>
+              <button 
+                onClick={() => window.location.reload()}
+                className="px-6 h-10 bg-red-500 text-white rounded-xl font-bold uppercase tracking-widest text-xs"
+              >
+                Réessayer
+              </button>
+            </div>
           ) : displayListings.length > 0 ? (
             displayListings.map((parking) => (
               <motion.div

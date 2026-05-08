@@ -1,4 +1,4 @@
-import { db_data } from '../../src/lib/db-data';
+import { db_data } from '../_lib/db';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 

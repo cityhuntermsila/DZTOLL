@@ -1,6 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
-
-const db_data = {
+export const db_data = {
+  users: [] as any[],
   listings: [
     // --- ALGER (Axes: Rocade Sud, Autoroute de l'Est, Boulevard des Martyrs) ---
     { id: 'alger-1', ownerId: 'admin', title: 'Garage Privé - Rocade Sud (Ben Aknoun)', description: 'Garage sécurisé à proximité immédiate de la Rocade Sud. Idéal pour éviter les bouchons. Entre de bonnes mains.', address: 'Ben Aknoun, Alger (Près Rocade Sud)', location: { lat: 36.7525, lng: 3.0185 }, type: 'garage', pricePerHour: 80, pricePerDay: 600, pricePerWeek: 3500, pricePerMonth: 12000, isNegotiable: true, images: ['https://media.istockphoto.com/id/1397038664/fr/photo/voitures-gar%C3%A9es-dans-un-garage-%C3%A0-plusieurs-%C3%A9tages.jpg?s=612x612&w=0&k=20&c=m2ORn2YE5KOcKvqmck8iBDcxFVJEYk71S26Fx5kJ9zI='], features: ['Accès Rapide', 'Vidéosurveillance', 'Sécurisé'], isAvailable: true, createdAt: Date.now() },
@@ -26,7 +25,7 @@ const db_data = {
     { id: 'oran-4', ownerId: 'admin', title: 'Garage Sécurisé - Akid Lotfi', description: 'Garage privé dans le quartier animé d\'Akid Lotfi. Sécurisé 24/7.', address: 'Akid Lotfi, Oran', location: { lat: 35.7150, lng: -0.5850 }, type: 'garage', pricePerHour: 80, pricePerDay: 600, pricePerWeek: 3500, pricePerMonth: 12000, isNegotiable: true, images: ['https://images.unsplash.com/photo-1526626607369-f89fe1ed77a9?q=80&w=1170&auto=format&fit=crop'], features: ['Fermé', 'Quartier Animé', 'Sécurisé'], isAvailable: true, createdAt: Date.now() },
     { id: 'oran-5', ownerId: 'admin', title: 'Parking Privé - Canastel', description: 'Parking sécurisé dans le quartier résidentiel de Canastel.', address: 'Canastel, Oran', location: { lat: 35.7350, lng: -0.5750 }, type: 'private_spot', pricePerHour: 60, pricePerDay: 450, pricePerWeek: 2500, pricePerMonth: 9000, isNegotiable: true, images: ['https://images.unsplash.com/photo-1612917231506-a0825d1bc76d?q=80&w=1170&auto=format&fit=crop'], features: ['Résidentiel', 'Calme', 'Sécurisé'], isAvailable: true, createdAt: Date.now() },
     { id: 'oran-6', ownerId: 'admin', title: 'Jardin Clos - Gambetta', description: 'Emplacement dans un jardin privé sécurisé à Gambetta. Entre de bonnes mains.', address: 'Gambetta, Oran', location: { lat: 35.7120, lng: -0.6150 }, type: 'garden_spot', pricePerHour: 55, pricePerDay: 400, pricePerWeek: 2200, pricePerMonth: 8000, isNegotiable: true, images: ['https://media.istockphoto.com/id/2178414859/photo/aerial-view-of-sparse-parking-lot-with-few-cars.jpg?s=612x612&w=0&k=20&c=FUAd8cXR_rwpuXjFZRqAMuA0YdEjP04fcuFZHFMQ-Go='], features: ['Jardin', 'Sécurisé', 'Proche Centre'], isAvailable: true, createdAt: Date.now() },
-    { id: 'oran-7', ownerId: 'admin', title: 'Box Privé - Maraval', description: 'Box sécurisé pour voiture à Maraval. Idéal for stationnement longue durée.', address: 'Maraval, Oran', location: { lat: 35.6880, lng: -0.6450 }, type: 'garage', pricePerHour: 75, pricePerDay: 550, pricePerWeek: 3200, pricePerMonth: 11000, isNegotiable: false, images: ['https://media.istockphoto.com/id/2201862537/photo/cars-lined-up-in-a-parking-lot.jpg?s=612x612&w=0&k=20&c=M9CEct4EvUmensRC6vkyXYxyT-iQmHZkELCiJ0EpYiw='], features: ['Box', 'Sécurisé', 'Longue Durée'], isAvailable: true, createdAt: Date.now() },
+    { id: 'oran-7', ownerId: 'admin', title: 'Box Privé - Maraval', description: 'Box sécurisé pour voiture à Maraval. Idéal pour stationnement longue durée.', address: 'Maraval, Oran', location: { lat: 35.6880, lng: -0.6450 }, type: 'garage', pricePerHour: 75, pricePerDay: 550, pricePerWeek: 3200, pricePerMonth: 11000, isNegotiable: false, images: ['https://media.istockphoto.com/id/2201862537/photo/cars-lined-up-in-a-parking-lot.jpg?s=612x612&w=0&k=20&c=M9CEct4EvUmensRC6vkyXYxyT-iQmHZkELCiJ0EpYiw='], features: ['Box', 'Sécurisé', 'Longue Durée'], isAvailable: true, createdAt: Date.now() },
     { id: 'oran-8', ownerId: 'admin', title: 'Parking Résidentiel - Es Senia', description: 'Parking sécurisé à Es Senia, proche de l\'université.', address: 'Es Senia, Oran', location: { lat: 35.6550, lng: -0.6250 }, type: 'private_spot', pricePerHour: 45, pricePerDay: 350, pricePerWeek: 1800, pricePerMonth: 6500, isNegotiable: true, images: ['https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=1170&auto=format&fit=crop'], features: ['Proche Université', 'Sécurisé', 'Eclairé'], isAvailable: true, createdAt: Date.now() },
 
     // --- CONSTANTINE (Axes: Route de Batna, Route de Skikda, Centre-Ville) ---
@@ -45,9 +44,9 @@ const db_data = {
     { id: 'bba-3', ownerId: 'admin', title: 'Parking en Jardin - Route de M\'Sila', description: 'Parking privé dans un jardin sécurisé sur l\'axe BBA-M\'Sila.', address: 'Route de M\'Sila, BBA Sud', location: { lat: 36.0550, lng: 4.7620 }, type: 'garden_spot', pricePerHour: 40, pricePerDay: 300, pricePerWeek: 1500, pricePerMonth: 5000, isNegotiable: true, images: ['https://media.istockphoto.com/id/1397038664/fr/photo/voitures-gar%C3%A9es-dans-un-garage-%C3%A0-plusieurs-%C3%A9tages.jpg?s=612x612&w=0&k=20&c=m2ORn2YE5KOcKvqmck8iBDcxFVJEYk71S26Fx5kJ9zI='], features: ['Axe Sud', 'Calme', 'Jardin Clos'], isAvailable: true, createdAt: Date.now() },
     { id: 'bba-4', ownerId: 'admin', title: 'Garage Privé - Quartier Administratif', description: 'Garage sécurisé au centre de BBA, proche des administrations.', address: 'Centre-Ville, BBA', location: { lat: 36.0720, lng: 4.7650 }, type: 'garage', pricePerHour: 60, pricePerDay: 450, pricePerWeek: 2500, pricePerMonth: 8000, isNegotiable: true, images: ['https://media.istockphoto.com/id/532186572/fr/photo/les-v%C3%A9hicules-dans-le-parc-de-stationnement-en-ligne.jpg?s=612x612&w=0&k=20&c=RNTuWKjX596RCWKIR7kRbWHqDW6cpbhS9D3bXF3MCS8='], features: ['Central', 'Sécurisé', 'Fermé'], isAvailable: true, createdAt: Date.now() },
     { id: 'bba-5', ownerId: 'admin', title: 'Parking Privé - Cité 500 Logements', description: 'Parking sécurisé dans une cité calme à BBA.', address: 'Cité 500 Logements, BBA', location: { lat: 36.0820, lng: 4.7550 }, type: 'private_spot', pricePerHour: 35, pricePerDay: 250, pricePerWeek: 1500, pricePerMonth: 5000, isNegotiable: true, images: ['https://media.istockphoto.com/id/1869208128/photo/a-row-of-parked-cars.jpg?s=612x612&w=0&k=20&c=6tEIF93R8KIkaCNuM0P2baAiPavFCmm6FtQ9-sED-rU='], features: ['Calme', 'Sécurisé', 'Accessible'], isAvailable: true, createdAt: Date.now() },
-    { id: 'bba-6', ownerId: 'admin', title: 'Jardin Clos - Route de Sétif', description: 'Emplacement sécurisé dans un jardin privé sur l\'axe BBA-Sétif.', address: 'Route de Sétif, BBA', location: { lat: 36.0780, lng: 4.7850 }, type: 'garden_spot', pricePerHour: 45, pricePerDay: 300, pricePerWeek: 1800, pricePerMonth: 6000, isNegotiable: true, images: ['https://media.istockphoto.com/id/1350571198/photo/car-parked-at-parking-lot-of-the-airport-for-rental-aerial-view-of-car-parking-lot-of-the.jpg?s=612x612&w=0&k=20&c=Ty6ynDickWwoQ9scBUqXaoTdij0hQOVlkOftwNEfOKA='], features: ['Jardin', 'Sécurisé', 'Axe Principal'], isAvailable: true, createdAt: Date.now() },
+    { id: 'bba-6', ownerId: 'admin', title: 'Jardin Clos - Route de Sétif', description: 'Emplacement sécurisé dans un jardin privé on the axe BBA-Sétif.', address: 'Route de Sétif, BBA', location: { lat: 36.0780, lng: 4.7850 }, type: 'garden_spot', pricePerHour: 45, pricePerDay: 300, pricePerWeek: 1800, pricePerMonth: 6000, isNegotiable: true, images: ['https://media.istockphoto.com/id/1350571198/photo/car-parked-at-parking-lot-of-the-airport-for-rental-aerial-view-of-car-parking-lot-of-the.jpg?s=612x612&w=0&k=20&c=Ty6ynDickWwoQ9scBUqXaoTdij0hQOVlkOftwNEfOKA='], features: ['Jardin', 'Sécurisé', 'Axe Principal'], isAvailable: true, createdAt: Date.now() },
     { id: 'bba-7', ownerId: 'admin', title: 'Box Privé - Zone Industrielle', description: 'Box sécurisé proche de la zone industrielle de BBA.', address: 'Zone Industrielle, BBA', location: { lat: 36.0450, lng: 4.7450 }, type: 'garage', pricePerHour: 55, pricePerDay: 400, pricePerWeek: 2200, pricePerMonth: 7500, isNegotiable: false, images: ['https://media.istockphoto.com/id/2222870577/photo/aerial-view-of-parking-lot-with-single-car.jpg?s=612x612&w=0&k=20&c=xpN9-x3VQSEO-al9LOwd52E3vEw6dV1FZQvr9Lrj4IA='], features: ['Box', 'Sécurisé', 'Zone Calme'], isAvailable: true, createdAt: Date.now() },
-    { id: 'bba-8', ownerId: 'admin', title: 'Parking Résidentiel - Quartier Nord', description: 'Parking sécurisé dans the quartier Nord de BBA.', address: 'Quartier Nord, BBA', location: { lat: 36.0950, lng: 4.7680 }, type: 'private_spot', pricePerHour: 30, pricePerDay: 200, pricePerWeek: 1200, pricePerMonth: 4000, isNegotiable: true, images: ['https://media.istockphoto.com/id/2178414859/photo/aerial-view-of-sparse-parking-lot-with-few-cars.jpg?s=612x612&w=0&k=20&c=FUAd8cXR_rwpuXjFZRqAMuA0YdEjP04fcuFZHFMQ-Go='], features: ['Résidentiel', 'Sécurisé', 'Economique'], isAvailable: true, createdAt: Date.now() },
+    { id: 'bba-8', ownerId: 'admin', title: 'Parking Résidentiel - Quartier Nord', description: 'Parking sécurisé dans le quartier Nord de BBA.', address: 'Quartier Nord, BBA', location: { lat: 36.0950, lng: 4.7680 }, type: 'private_spot', pricePerHour: 30, pricePerDay: 200, pricePerWeek: 1200, pricePerMonth: 4000, isNegotiable: true, images: ['https://media.istockphoto.com/id/2178414859/photo/aerial-view-of-sparse-parking-lot-with-few-cars.jpg?s=612x612&w=0&k=20&c=FUAd8cXR_rwpuXjFZRqAMuA0YdEjP04fcuFZHFMQ-Go='], features: ['Résidentiel', 'Sécurisé', 'Economique'], isAvailable: true, createdAt: Date.now() },
 
     // --- SETIF (Axes: Boulevard de l\'ALN, Route de Constantine, Axe Sud) ---
     { id: 'setif-1', ownerId: 'admin', title: 'Parking Privé - Boulevard de l\'ALN', description: 'En plein coeur de Sétif, sur l\'axe principal de l\'ALN. Sécurisé.', address: 'Boulevard de l\'ALN, Sétif', location: { lat: 36.1910, lng: 5.4120 }, type: 'private_spot', pricePerHour: 60, pricePerDay: 450, pricePerWeek: 2500, pricePerMonth: 8000, isNegotiable: true, images: ['https://media.istockphoto.com/id/2201862537/photo/cars-lined-up-in-a-parking-lot.jpg?s=612x612&w=0&k=20&c=M9CEct4EvUmensRC6vkyXYxyT-iQmHZkELCiJ0EpYiw='], features: ['Centre-Ville', 'Eclairé', 'Sécurisé'], isAvailable: true, createdAt: Date.now() },
@@ -55,27 +54,7 @@ const db_data = {
 
     // --- OPTIONS PÉAGES (Autoroute Est-Ouest A1 & Est A2) ---
     { id: 'toll-alg-boum', ownerId: 'admin', title: 'Péage Alger - Boumerdes', description: 'Pass pour le tronçon Alger / Boumerdes via l\'A2. Idéal pour les navetteurs quotidiens.', address: 'Barrière de Khemis El Khechna', location: { lat: 36.6550, lng: 3.3250 }, type: 'toll_badge', pricePerHour: 20, pricePerDay: 20, pricePerWeek: 20, pricePerMonth: 20, isNegotiable: false, images: ['https://images.unsplash.com/photo-1545179212-073c880ec19d?q=80&w=1170&auto=format&fit=crop'], features: ['A2 Est', 'Navetteur', 'Voie Rapide'], isAvailable: true, createdAt: Date.now(), route: { start: { lat: 36.7525, lng: 3.0412 }, end: { lat: 36.7620, lng: 3.4750 } } },
-  ]
+  ],
+  bookings: [] as any[],
+  messages: [] as any[],
 };
-
-export default function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method === 'GET') {
-    return res.status(200).json(db_data.listings);
-  }
-
-  if (req.method === 'POST') {
-    const listing = { ...req.body, id: uuidv4(), createdAt: Date.now() };
-    db_data.listings.push(listing);
-    return res.status(201).json(listing);
-  }
-
-  return res.status(405).json({ error: 'Method not allowed' });
-}
