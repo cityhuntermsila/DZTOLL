@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "leaflet/dist/leaflet.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+
+  --color-background: #020617;
+  --color-foreground: #f8fafc;
+
+  --color-primary: #003E7E;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #00A651;
+  --color-secondary-foreground: #ffffff;
+
+  --color-accent: #22C55E;
+  --color-accent-foreground: #ffffff;
+
+  --color-muted: #1e293b;
+  --color-muted-foreground: #94a3b8;
+
+  --color-card: #0f172a;
+  --color-card-foreground: #f8fafc;
+
+  --color-border: #1e293b;
+  --color-input: #1e293b;
+  --color-ring: #3b82f6;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2.5rem;
+  
+  --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+.glass {
+  @apply bg-card/60 backdrop-blur-xl border border-white/5;
+}
+
+.btn-premium {
+  @apply h-12 px-6 rounded-2xl font-bold uppercase tracking-widest transition-all duration-300 active:scale-95 shadow-lg flex items-center justify-center gap-2;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+              radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+}

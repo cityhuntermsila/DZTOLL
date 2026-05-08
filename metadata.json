@@ -1,0 +1,8 @@
+{
+  "name": "DzToll",
+  "description": "Plateforme collaborative de location de parkings entre particuliers en Algérie. Louez votre place ou trouvez un stationnement à Alger, Oran, Constantine et plus.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ]
+}
